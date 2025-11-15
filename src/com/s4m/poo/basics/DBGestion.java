@@ -20,6 +20,7 @@ public class DBGestion {
         }
     }
 
+    //Insère un nouvel étudiant et donne son ID
     public static int insertEtudiant(Etudiant e) {
         var sql = "INSERT INTO etudiants(nom, moyenne, avis) VALUES (?, ?, ?)";
         try (var conn = getConnection();
@@ -37,6 +38,7 @@ public class DBGestion {
         return 0;
     }
 
+    //Met à jour la moyenne et l'avis d'un étudiant
     public static void updateEtudiant(Etudiant e) {
         var sql = "UPDATE etudiants SET moyenne=?, avis=? WHERE id=?";
         try (var conn = getConnection();
@@ -50,6 +52,7 @@ public class DBGestion {
         }
     }
 
+    //Insere une nouvelle matière et donne son ID
     public static int insertMatiere(Matiere m) {
         var sql = "INSERT INTO matieres(nom, coef) VALUES (?, ?)";
         try (var conn = getConnection();
@@ -68,6 +71,7 @@ public class DBGestion {
         return 0;
     }
 
+    //Récupere une matière à partir de son ID
     public static Matiere getMatiereById(int id) {
         var sql = "SELECT * FROM matieres WHERE id=?";
         try (var conn = getConnection();
@@ -85,6 +89,7 @@ public class DBGestion {
         return null;
     }
 
+    //Insère une notation pour un étudiant
     public static void insertNotation(int etudiantId, Notation n) {
         var sql = "INSERT INTO notations(note, etudiant_id, matiere_id) VALUES (?, ?, ?)";
         try (var conn = getConnection();
@@ -98,6 +103,7 @@ public class DBGestion {
         }
     }
 
+    //Récupère les notations d'un étudiants avec toutes les infos des matières
     public static ArrayList<Notation> getNotations(int etudiantId) {
         var list = new ArrayList<Notation>();
         var sql = "SELECT n.note, m.id AS matiere_id, m.nom, m.coef "

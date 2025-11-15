@@ -1,4 +1,4 @@
-package com.s4m.poo;
+package com.s4m.poo.test;
 
 import com.s4m.poo.basics.DBGestion;
 import com.s4m.poo.basics.Etudiant;
@@ -24,6 +24,7 @@ public class TestEtudiant {
             System.out.println("Matière :");
             String matNom = sc.nextLine();
 
+            //Vérifie que le coef donné est strictement positif
             int coef;
             do {
                 System.out.println("Coefficient :");
@@ -34,6 +35,7 @@ public class TestEtudiant {
                 }
             } while (coef <= 0);
 
+            //Vérifie que la note est entre 0 et 20
             float note;
             do {
                 System.out.println("Note :");

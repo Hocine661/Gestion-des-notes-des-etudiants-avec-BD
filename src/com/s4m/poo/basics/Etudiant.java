@@ -51,7 +51,7 @@ public class Etudiant {
         this.notations = notations;
     }
 
-
+    //Methodes
     public void save() {
         this.id = DBGestion.insertEtudiant(this);
     }
@@ -61,7 +61,6 @@ public class Etudiant {
     public void loadNotations() {
         this.notations = DBGestion.getNotations(this.id);
     }
-    //Methodes
     public void calculerMoyenne() {
         if (notations.isEmpty()) {
             this.moyenne = 0;
